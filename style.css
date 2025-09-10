@@ -52,7 +52,7 @@ header .container {
 }
 
 .logo-img {
-    height: 40px; /* Ajuste a altura da logo conforme necessário */
+    height: 40px;
 }
 
 .nav-menu a {
@@ -61,8 +61,7 @@ header .container {
     margin-left: 25px;
     font-weight: 600;
     transition: color 0.3s;
-    /* Efeito de luz sutil para os links de navegação */
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7); /* Brilho branco sutil */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
 }
 
 .nav-menu a:hover {
@@ -87,6 +86,8 @@ header .container {
     display: none;
     font-size: 1.5rem;
     cursor: pointer;
+    color: var(--color-branco);
+    transition: transform 0.3s ease-in-out;
 }
 
 /* Hero Section */
@@ -100,7 +101,6 @@ header .container {
     position: relative;
 }
 
-/* Máscara transparente com pseudo-classe (75% de opacidade) */
 .hero::after {
     content: '';
     position: absolute;
@@ -108,33 +108,29 @@ header .container {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(200, 200, 200, 0.75); /* Cinza claro com 75% de opacidade */
-    z-index: 1; /* Garante que a máscara fique entre a imagem e o texto */
+    background-color: rgba(200, 200, 200, 0.75);
+    z-index: 1;
 }
 
 .hero-content {
     position: relative;
-    z-index: 2; /* Garante que o conteúdo fique acima da máscara */
+    z-index: 2;
     max-width: 700px;
     margin: 0 auto;
     padding: 0 20px;
-    color: var(--color-preto); /* Cor da fonte dos textos para preto */
+    color: var(--color-preto);
 }
 
 .hero h1 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
-    /* Efeito de luz para o título principal */
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), /* Brilho interno mais forte */
-                 0 0 20px rgba(255, 255, 255, 0.6); /* Brilho externo mais suave */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
 }
 
 .hero p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
-    /* Efeito de luz para o parágrafo */
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.7), /* Brilho interno */
-                 0 0 15px rgba(255, 255, 255, 0.5); /* Brilho externo */
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.7), 0 0 15px rgba(255, 255, 255, 0.5);
 }
 
 /* Sections */
@@ -332,8 +328,22 @@ footer {
     transform: scale(1.1);
 }
 
-/* Responsive Design */
+/* --- OTIMIZAÇÕES PARA TELAS MENORES (MAX-WIDTH: 768PX) --- */
 @media (max-width: 768px) {
+    /* Geral: Ajusta o padding das seções para um uso mais eficiente do espaço */
+    .section {
+        padding: 60px 0;
+    }
+
+    /* Header: Esconde botões extras no mobile */
+    .header-cta {
+        display: none;
+    }
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Menu de Navegação: Estiliza o menu hamburger */
     .nav-menu {
         display: none;
         flex-direction: column;
@@ -343,6 +353,7 @@ footer {
         width: 100%;
         background-color: var(--color-chumbo);
         text-align: center;
+        transition: all 0.3s ease-in-out;
     }
     .nav-menu.active {
         display: flex;
@@ -350,17 +361,34 @@ footer {
     .nav-menu a {
         margin: 10px 0;
         padding: 10px 0;
+        text-shadow: none; /* Remove a sombra do texto no menu mobile para maior clareza */
     }
+
+    /* Seção Hero: Reduz o tamanho da fonte para melhor visualização */
     .hero h1 {
         font-size: 2.5rem;
     }
     .hero p {
         font-size: 1rem;
     }
-    .content-wrapper, .contact-grid {
+
+    /* Seção Sobre Nós: Organiza o conteúdo em uma coluna */
+    .content-wrapper {
         flex-direction: column;
     }
+
+    /* Seção de Serviços: Organiza os cards em uma coluna */
     .servicos-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* Seção Contato: Organiza o formulário e o mapa em uma coluna */
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Galeria: Reduz o espaçamento entre as imagens */
+    .galeria-grid {
+        gap: 10px;
     }
 }
