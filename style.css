@@ -1,0 +1,366 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+:root {
+    --color-chumbo: #2E2E2E;
+    --color-vermelho: #C40000;
+    --color-branco: #FFFFFF;
+    --color-cinza-claro: #f4f4f4;
+    --color-preto: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: var(--color-chumbo);
+    background-color: var(--color-branco);
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background-color: var(--color-chumbo);
+    color: var(--color-branco);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.logo-img {
+    height: 40px; /* Ajuste a altura da logo conforme necessário */
+}
+
+.nav-menu a {
+    color: var(--color-branco);
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 600;
+    transition: color 0.3s;
+    /* Efeito de luz sutil para os links de navegação */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7); /* Brilho branco sutil */
+}
+
+.nav-menu a:hover {
+    color: var(--color-vermelho);
+}
+
+.cta-button {
+    background-color: var(--color-vermelho);
+    color: var(--color-branco);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #a30000;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: url('img/hero-banner.jpeg') no-repeat center center/cover;
+    position: relative;
+}
+
+/* Máscara transparente com pseudo-classe (75% de opacidade) */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(200, 200, 200, 0.75); /* Cinza claro com 75% de opacidade */
+    z-index: 1; /* Garante que a máscara fique entre a imagem e o texto */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; /* Garante que o conteúdo fique acima da máscara */
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 20px;
+    color: var(--color-preto); /* Cor da fonte dos textos para preto */
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    /* Efeito de luz para o título principal */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), /* Brilho interno mais forte */
+                 0 0 20px rgba(255, 255, 255, 0.6); /* Brilho externo mais suave */
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    /* Efeito de luz para o parágrafo */
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.7), /* Brilho interno */
+                 0 0 15px rgba(255, 255, 255, 0.5); /* Brilho externo */
+}
+
+/* Sections */
+.section {
+    padding: 80px 0;
+}
+
+.section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-vermelho);
+}
+
+.bg-gray {
+    background-color: var(--color-cinza-claro);
+}
+
+/* About Us */
+.content-wrapper {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.text-content {
+    flex: 1;
+}
+
+.text-content p {
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+.valores-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.valores-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.valores-list li::before {
+    content: '\f058';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    color: var(--color-vermelho);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.image-content {
+    flex: 1;
+    text-align: center;
+}
+
+.image-content img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Services */
+.servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.servico-card {
+    background-color: var(--color-branco);
+    padding: 40px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.servico-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.servico-card i {
+    font-size: 3rem;
+    color: var(--color-vermelho);
+    margin-bottom: 15px;
+}
+
+.servico-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+/* Gallery */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+.galeria-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.galeria-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.contact-form input, .contact-form select, .contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+}
+
+.contact-info i {
+    color: var(--color-chumbo);
+    margin-right: 10px;
+}
+
+.map-container {
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+    background-color: var(--color-chumbo);
+    color: var(--color-cinza-claro);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+}
+
+/* WhatsApp Float Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366;
+    color: var(--color-branco);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: transform 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-chumbo);
+        text-align: center;
+    }
+    .nav-menu.active {
+        display: flex;
+    }
+    .nav-menu a {
+        margin: 10px 0;
+        padding: 10px 0;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    .content-wrapper, .contact-grid {
+        flex-direction: column;
+    }
+    .servicos-grid {
+        grid-template-columns: 1fr;
+    }
+}
